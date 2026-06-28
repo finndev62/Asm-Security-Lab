@@ -36,7 +36,7 @@ _start:
       mov r2, #0
       strb r2, [r1, r5]
 
-      @ 1. Dosyayi sadece OKUMAK icin aciyoruz
+      
       ldr r0, =filename
       mov r1, #0                  @ O_RDONLY
       mov r2, #0
@@ -54,7 +54,7 @@ _start:
       svc #0
       mov r5, r0
 
-      @ Okuma bitti, dosyayı kapatıyoruz ki imlec temizlensin
+      
       mov r0, r4
       mov r7, #6
       svc #0
@@ -94,7 +94,7 @@ xor_loop:
     b xor_loop
 
 save_changes:
-    @ 2. Dosyayi simdi YAZMA ve SIFIRLAMA modunda aciyoruz (Eski kod silinsin diye)
+    
     ldr r0, =filename
     mov r1, #0101               @ O_WRONLY | O_CREAT | O_TRUNC (Dosyayi temizler)
     mov r2, #0644
